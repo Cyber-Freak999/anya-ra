@@ -4,7 +4,7 @@ use tauri_plugin_store::StoreExt;
 #[command]
 pub async fn get_settings(app: AppHandle) -> Result<Option<serde_json::Value>, String> {
     let store = app.store("settings.json").map_err(|e| e.to_string())?;
-    Ok(store.get("settings").cloned())
+    Ok(store.get("settings"))
 }
 
 #[command]
